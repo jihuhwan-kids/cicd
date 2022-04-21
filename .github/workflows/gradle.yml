@@ -65,4 +65,4 @@ jobs:
         run: aws deploy create-deployment --application-name yubbi-deploy
           --deployment-config-name CodeDeployDefault.OneAtTime
           --deployment-group-name yubbi
-          --s3-location bucket=s3://deploy-bucket-yubbi/yubbi.zip ,bundleType=zip,key=yubbi.zip
+          --s3-location bucket=deploy-bucket-yubbi ,bundleType=zip,key=yubbi.zip
