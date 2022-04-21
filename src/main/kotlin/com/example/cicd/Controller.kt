@@ -22,4 +22,26 @@ class Controller {
         return postDto;
     }
 
+    @GetMapping("/entity")
+    fun entityCreateTestController(@RequestParam name : String) {
+        var user = User(username = name)
+        println(user.id)
+        println(user.username)
+    }
+
+    @GetMapping("/getter")
+    fun entityGetterTestController(@RequestParam name : String) {
+        var user = User(username = name)
+        println(user.id)
+        println(user.username)
+    }
+
+    @GetMapping("/setter")
+    fun entitySetterTestController(@RequestParam name : String) {
+        val user = User(username = name)
+        println(user.id)
+        println(user.username)
+    }
+
+
 }
