@@ -51,7 +51,7 @@ jobs:
       - name: Make zip file
         run: zip -r -qq -j ./yubbi.zip ./deploy
 
-      - name: Deploy
+      - name: Move to S3
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{secrets.AWS_ACCESS_KEY}}
@@ -61,3 +61,8 @@ jobs:
       - name: Upload to S3
         run: aws s3 cp --region ap-northeast-2 --acl private ./yubbi.zip s3://deploy-bucket-yubbi/
 
+      - name: Deploy to EC2
+        run: aws deploy create-deployment --application-name yubbi-deploy
+          --deployment-config-name CodeDeployDefault.OneAtTime
+          --deployment-group-name yubbi
+          --s3-location bucket=/app ,bundleType=zip,key=yubbi.zip
