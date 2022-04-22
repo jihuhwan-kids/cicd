@@ -1,0 +1,7 @@
+version: 0.0
+os: linux
+
+files:
+  - source: /
+    destination: /home/ec2-user # 인스턴스에서 파일이 저장될 위치
+    overwrite: yes
