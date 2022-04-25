@@ -59,6 +59,11 @@ jobs:
         if: github.event_name == 'push'
         run: cp ./deploy.sh ./deploy
 
+      # Deploy.sh 파일 Copy
+      - name: Chmod Deploy
+        if: github.event_name == 'push'
+        run: chmod +x deploy.sh
+
       # 압축파일 형태로 전달
       - name: Make zip file
         if: github.event_name == 'push'
