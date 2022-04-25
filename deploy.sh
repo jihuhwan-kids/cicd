@@ -22,4 +22,4 @@ else
 fi
 
 DEPLOY_JAR=/home/ec2-user/*.jar
-nohup java -jar $DEPLOY_JAR > nohup.out 2>&1 &
+nohup java -jar $DEPLOY_JAR > /dev/null 2> /dev/null < /dev/null &
