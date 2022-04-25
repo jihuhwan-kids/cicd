@@ -44,15 +44,10 @@ jobs:
         if: github.event_name == 'push'
         run: mkdir deploy
 
-      # 전송할 파일을 담을 디렉토리 생성
-      - name: Make Directory for deliver
-        if: github.event_name == 'push'
-        run: mkdir deploy/app
-
       # Jar 파일 Copy
       - name: Copy Jar
         if: github.event_name == 'push'
-        run: cp ./build/libs/*SNAPSHOT.jar ./deploy/app
+        run: cp ./build/libs/*SNAPSHOT.jar ./deploy
 
       # Appspec.yml 파일 Copy
       - name: Copy Appspec

@@ -1,11 +1,11 @@
+export MYSQL_YUBBI_URL="jdbc:mysql://yubbi-database.csebcqevndde.ap-northeast-2.rds.amazonaws.com:3306/yubbi"
+export MYSQL_YUBBI_ID="admin"
+export MYSQL_YUBBI_PW="12345678"
+
 BUILD_JAR=$(ls /home/ec2-user/app/*.jar)
 JAR_NAME=$(basename $BUILD_JAR)
 
 echo "> build 파일명 : $JAR_NAME"
-
-#echo "> build 파일복사"
-#DEPLOY_PATH=/home/ec2-user
-#cp $BUILD_JAR $DEPLOY_PATH
 
 echo "> 현재 실행중인 애플리케이션 PID"
 CURRENT_PID=$(pgrep -f $JAR_NAME)
@@ -20,4 +20,4 @@ else
 fi
 
 DEPLOY_JAR=/home/ec2-user/app/*.jar
-nohup java -jar $DEPLOY_JAR &>/dev/null
+nohup java -jar $DEPLOY_JAR &
