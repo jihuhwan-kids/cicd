@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 export MYSQL_YUBBI_URL="jdbc:mysql://yubbi-database.csebcqevndde.ap-northeast-2.rds.amazonaws.com:3306/yubbi"
 export MYSQL_YUBBI_ID="admin"
@@ -21,5 +21,5 @@ else
   sleep 5
 fi
 
-DEPLOY_JAR=/home/ec2-user/cicd-0.0.1-SNAPSHOT.jar
+DEPLOY_JAR=/home/ec2-user/*.jar
 nohup java -jar $DEPLOY_JAR > nohup.out 2>&1 &
