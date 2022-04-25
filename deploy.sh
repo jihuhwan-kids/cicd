@@ -2,7 +2,7 @@ export MYSQL_YUBBI_URL="jdbc:mysql://yubbi-database.csebcqevndde.ap-northeast-2.
 export MYSQL_YUBBI_ID="admin"
 export MYSQL_YUBBI_PW="12345678"
 
-BUILD_JAR=$(ls /home/ec2-user/app/*.jar)
+BUILD_JAR=$(ls /home/ec2-user/*.jar)
 JAR_NAME=$(basename $BUILD_JAR)
 
 echo "> build 파일명 : $JAR_NAME"
@@ -19,5 +19,5 @@ else
   sleep 5
 fi
 
-DEPLOY_JAR=/home/ec2-user/app/*.jar
+DEPLOY_JAR=/home/ec2-user/*.jar
 nohup java -jar $DEPLOY_JAR &
