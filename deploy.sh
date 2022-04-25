@@ -1,6 +1,4 @@
-export MYSQL_YUBBI_URL="jdbc:mysql://yubbi-database.csebcqevndde.ap-northeast-2.rds.amazonaws.com:3306/yubbi"
-export MYSQL_YUBBI_ID="admin"
-export MYSQL_YUBBI_PW="12345678"
+#!/usr/bin/env bash
 
 BUILD_JAR=$(ls /home/ec2-user/*.jar)
 JAR_NAME=$(basename $BUILD_JAR)
@@ -20,4 +18,5 @@ else
 fi
 
 DEPLOY_JAR=/home/ec2-user/*.jar
-nohup java -jar $DEPLOY_JAR /dev/null 2> /dev/null < /dev/null &
+#nohup java -jar $DEPLOY_JAR /dev/null 2> /dev/null < /dev/null &
+nohup java -jar $DEPLOY_JAR > home/ec2-user/nohup.out 2>&1 &
