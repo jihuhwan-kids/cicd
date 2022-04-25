@@ -21,5 +21,5 @@ else
   sleep 5
 fi
 
-DEPLOY_JAR=/home/ec2-user/*.jar
+DEPLOY_JAR=/home/ec2-user/cicd-0.0.1-SNAPSHOT.jar
 nohup java -jar $DEPLOY_JAR > nohup.out 2>&1 &
